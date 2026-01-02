@@ -9,25 +9,39 @@ const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"], variable: "-
 const cormorantGaramond = Cormorant_Garamond({ weight: ["300", "400", "500", "600"], subsets: ["latin"], variable: "--font-cormorant" });
 
 export const metadata: Metadata = {
-  title: 'For My Bestu',
-  description: 'A special gift for a special person',
+  title: 'For Athoy 🤍 Happy 19th Birthday',
+  description: 'A special journey through our story. Created with love by Zayed.',
   generator: 'v0.app',
+  openGraph: {
+    title: 'For Athoy - Happy 19th Birthday',
+    description: 'A special journey through our story. Created with love by Zayed.',
+    url: 'https://for-athoy.vercel.app',
+    siteName: 'For Athoy',
+    images: [
+      {
+        url: '/opengraph.png',
+        width: 1200,
+        height: 630,
+        alt: 'For Athoy - Happy 19th Birthday',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'For Athoy - Happy 19th Birthday',
+    description: 'A special journey through our story. Created with love by Zayed.',
+    images: ['/opengraph.png'],
+  },
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/favicon-a.png',
+        sizes: '32x32',
+        type: 'image/png',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/favicon-a.png',
   },
 }
 
