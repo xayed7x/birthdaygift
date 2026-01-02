@@ -1,0 +1,263 @@
+/* Timeline Phase Styles */
+.container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0f172a, #1e1b4b, #312e81);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.scrollContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  z-index: 10;
+  padding: 2rem 1rem;
+}
+
+.content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 200px;
+}
+
+/* SVG Container for the Snake Path */
+.svgContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Timeline Entries */
+.entry {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Space for curve */
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(30px);
+  z-index: 2;
+}
+
+.entry.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternating Layout */
+.entry.left {
+  flex-direction: row;
+}
+
+.entry.right {
+  flex-direction: row-reverse;
+}
+
+/* Glass Card */
+.glassCard {
+  width: 45%;
+  max-width: 500px;
+  background: rgba(30, 27, 75, 0.6); /* Deep indigo glass */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(251, 191, 36, 0.3); /* Gold border */
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  color: white;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .entry {
+    min-height: 250px; /* Reduced height closer together */
+    margin-bottom: 2rem;
+  }
+  
+  .glassCard {
+    width: 85%; /* Wider on mobile */
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+  
+  .entry.left .glassCard {
+    margin-left: 1rem;
+    margin-right: auto;
+    border-top-right-radius: 0; 
+  }
+
+  .entry.right .glassCard {
+    margin-right: 1rem;
+    margin-left: auto;
+    border-top-left-radius: 0;
+  }
+  
+  .year {
+    font-size: 2rem; /* Slightly smaller font */
+  }
+  
+  .text {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop override */
+@media (min-width: 769px) {
+  .entry.left .glassCard {
+    margin-right: auto;
+    margin-left: 2rem;
+    border-top-right-radius: 0; 
+  }
+
+  .entry.right .glassCard {
+    margin-left: auto;
+    margin-right: 2rem;
+    border-top-left-radius: 0; 
+  }
+}
+
+/* Glowing Dot on Card Corner */
+.dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1e1b4b;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Position dot on the specific corner connecting to the line */
+/* Left Card: Connects from top-right */
+.entry.left .dot {
+  top: -10px;
+  right: -10px;
+}
+
+/* Right Card: Connects from top-left */
+.entry.right .dot {
+  top: -10px;
+  left: -10px;
+}
+
+.dot.active {
+  border-color: #fbbf24;
+  background: #fbbf24;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 1);
+  transform: scale(1.3);
+}
+
+.dotInner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.year {
+  font-family: var(--font-handwriting);
+  font-size: 2.5rem;
+  color: #fbbf24;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.iconWrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+/* Ending Section */
+.endingSection {
+  margin-top: 4rem;
+  text-align: center;
+  padding: 0 2rem;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+}
+
+.endingSection.visible {
+  opacity: 1;
+}
+
+.poeticText p {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: white;
+  margin: 0.5rem 0;
+  font-style: italic;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.endButton {
+  margin-top: 3rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  border: none;
+  border-radius: 9999px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fffbeb;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+  transition: transform 0.3s;
+}
+
+.endButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}

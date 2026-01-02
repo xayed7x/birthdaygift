@@ -1,0 +1,372 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #581c87 50%, #1e3a8a 100%);
+  position: relative;
+  overflow: hidden;
+  gap: 20px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.bookContainer {
+  position: relative;
+  z-index: 10;
+  perspective: 1000px;
+  max-width: 900px;
+  width: 95%;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset -2px 0 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.book::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1), transparent);
+  z-index: 5;
+}
+
+.book.flipping {
+  transform: rotateY(180deg);
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #fefefe;
+  color: #2d3748;
+  font-family: "Lora", "Crimson Text", serif;
+  position: relative;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.page.left {
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pageContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: "Playfair Display", "Cormorant", serif;
+  letter-spacing: 1px;
+  color: #1a202c;
+}
+
+.pageTextContent {
+  width: 100%;
+}
+
+.pageText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.pageText p {
+  margin: 0;
+}
+
+.bengaliText {
+  font-style: italic;
+  color: #5a6c7d;
+  margin: 0.75rem 0;
+}
+
+.coverContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.coverScript {
+  font-size: 32px;
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  margin: 0;
+  color: #1a202c;
+  letter-spacing: 1px;
+}
+
+.coverInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.coverInfo p {
+  margin: 0;
+}
+
+.infographic {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.infoItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.infoIcon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-size: 14px;
+  color: #5a6c7d;
+  margin: 0;
+  font-weight: 500;
+}
+
+.infoValue {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0.25rem 0 0 0;
+  color: #1a202c;
+}
+
+.finalPage {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.basmala {
+  font-size: 18px;
+  margin: 0;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.greeting {
+  font-size: 14px;
+  margin: 0;
+  color: #5a6c7d;
+  letter-spacing: 0.5px;
+}
+
+.finalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.finalContent p {
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  position: relative;
+}
+
+.navButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.navButton:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.navButton.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pageIndicator {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  min-width: 120px;
+  text-align: center;
+  font-family: "Geist", sans-serif;
+}
+
+.finalButton {
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  position: relative;
+}
+
+.continueButton {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.continueButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.6);
+}
+
+.continueButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .bookContainer {
+    aspect-ratio: 2.5 / 4;
+  }
+
+  .page {
+    padding: 24px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .pageTitle {
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+
+  .pageText {
+    font-size: 14px;
+  }
+
+  .coverScript {
+    font-size: 24px;
+  }
+
+  .navigation {
+    gap: 1.5rem;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .pageIndicator {
+    font-size: 12px;
+  }
+
+  .continueButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

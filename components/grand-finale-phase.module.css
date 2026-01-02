@@ -1,0 +1,184 @@
+.container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem 2rem 1rem;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #1e3a8a 0%, #7e22ce 50%, #1e40af 100%);
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeInUp 2s ease-out;
+}
+
+.textSection {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.openingText {
+  font-size: 1.5rem;
+  color: white;
+  line-height: 2;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+}
+
+.mainText {
+  font-size: 1.25rem;
+  color: white;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.arabicText {
+  font-size: 1.5rem;
+  color: #fbbf24;
+  letter-spacing: 0.1em;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+.blessingText {
+  font-size: 1.125rem;
+  color: white;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.closingText {
+  font-size: 1.25rem;
+  color: white;
+  line-height: 2;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 1.5rem auto;
+  opacity: 0.6;
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 3rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.actionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 150px;
+}
+
+.actionCard:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(126, 34, 206, 0.3);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.cardDescription {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem 0.75rem;
+  }
+
+  .buttonsContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .openingText {
+    font-size: 1.25rem;
+  }
+
+  .mainText {
+    font-size: 1.1rem;
+  }
+
+  .closingText {
+    font-size: 1.1rem;
+  }
+
+  .actionCard {
+    min-height: 120px;
+  }
+}
